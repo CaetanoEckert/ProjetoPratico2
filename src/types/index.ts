@@ -1,0 +1,5 @@
+export type TaskList = { id: string; user_id: string; name: string; position: number; created_at: string; updated_at: string; tasks?: Task[] };
+export type Task = { id: string; list_id: string; user_id: string; title: string; description: string | null; is_completed: boolean; completed_at: string | null; created_at: string; updated_at: string };
+export type HistoryAction = 'LIST_CREATED'|'LIST_RENAMED'|'LIST_DELETED'|'TASK_CREATED'|'TASK_UPDATED'|'TASK_DELETED'|'TASK_COMPLETED'|'TASK_REOPENED'|'ALL_COMPLETED'|'ALL_REOPENED';
+export type TaskHistory = { id: string; list_id: string; task_id: string | null; user_id: string; action_type: HistoryAction; description: string; created_at: string };
+export type RootStackParamList = { Auth: undefined; Main: undefined; Login: undefined; Register: undefined; ForgotPassword: undefined; TaskLists: undefined; ListForm: { list?: TaskList } | undefined; Tasks: { list: TaskList }; TaskForm: { listId: string; task?: Task } | undefined; History: { listId: string; listName: string }; Report: undefined; Settings: undefined };
